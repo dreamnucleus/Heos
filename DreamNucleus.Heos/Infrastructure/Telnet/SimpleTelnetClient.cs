@@ -11,7 +11,7 @@ using PrimS.Telnet;
 
 namespace DreamNucleus.Heos.Infrastructure.Telnet
 {
-    public class SimpleHeosTelnetClient : IHeosTelnetClient, IDisposable
+    public class SimpleTelnetClient : IHeosTelnetClient, IDisposable
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
@@ -22,7 +22,7 @@ namespace DreamNucleus.Heos.Infrastructure.Telnet
         public IObservable<string> Messages => messageSubject;
 
 
-        public SimpleHeosTelnetClient(params string[] hosts)
+        public SimpleTelnetClient(params string[] hosts)
         {
             cancellationTokenSource = new CancellationTokenSource();
             telnetClient = new Client(hosts.First(), 1255, cancellationTokenSource.Token);
