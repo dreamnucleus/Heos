@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using DreamNucleus.Heos.Infrastructure.Heos;
+
+namespace DreamNucleus.Heos.Commands.Group
+{
+    public class SetGroupCommand : Command<EmptyResponse>
+    {
+        public SetGroupCommand(params int[] playerIds)
+            : base($"group/set_group?pid={string.Join(",", playerIds)}")
+        {
+        }
+
+        public override EmptyResponse Parse(Response response)
+        {
+            // TODO:
+            return Empty;
+        }
+    }
+}

@@ -1,0 +1,106 @@
+﻿using System;
+using System.Reactive.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using DreamNucleus.Heos.Commands;
+using DreamNucleus.Heos.Infrastructure.Heos;
+using NLog;
+
+namespace DreamNucleus.Heos
+{
+    public class CommandProcessor
+    {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
+        private readonly HeosClient heosClient;
+
+        public int Retry { get; set; } = 0;
+        public TimeSpan Timeout { get; set; } = TimeSpan.FromSeconds(1); // TODO: choose less
+        public TimeSpan RetryDelay { get; set; } = TimeSpan.FromMilliseconds(300);
+
+
+        public CommandProcessor(HeosClient heosClient)
+        {
+            this.heosClient = heosClient;
+        }
+
+        public async Task Start(Message message)
+        {
+            await heosClient.Write(message);
+        }
+
+        public async Task<Response<T>> Execute<T>(Command<T> command) where T : new()
+        {
+            return await Execute(command, p => true, Retry, Timeout);
+        }
+
+        public async Task<Response<T>> Execute<T>(Command<T> command, int retry) where T : new()
+        {
+            return await Execute(command, p => true, retry, Timeout);
+        }
+
+        public async Task<Response<T>> Execute<T>(Command<T> command, TimeSpan timeout) where T : new()
+        {
+            return await Execute(command, p => true, Retry, timeout);
+        }
+
+        public async Task<Response<T>> Execute<T>(Command<T> command, int retry, TimeSpan timeout) where T : new()
+        {
+            return await Execute(command, p => true, retry, timeout);
+        }
+        public async Task<Response<T>> Execute<T>(Command<T> command, int retry, TimeSpan timeout, TimeSpan retryDelay) where T : new()
+        {
+            return await Execute(command, p => true, retry, timeout, retryDelay);
+        }
+
+        public async Task<Response<T>> Execute<T>(Command<T> command, Func<T, bool> successFunc) where T : new()
+        {
+            return await Execute(command, successFunc, Retry, Timeout);
+        }
+
+        public async Task<Response<T>> Execute<T>(Command<T> command, Func<T, bool> successFunc, int retry)
+            where T : new()
+        {
+            return await Execute(command, successFunc, retry, Timeout);
+        }
+
+        public async Task<Response<T>> Execute<T>(Command<T> command, Func<T, bool> successFunc, TimeSpan timeout)
+            where T : new()
+        {
+            return await Execute(command, successFunc, Retry, timeout);
+        }
+
+        public async Task<Response<T>> Execute<T>(Command<T> command, Func<T, bool> successFunc, int retry,
+            TimeSpan timeout) where T : new()
+        {
+            return await Execute(command, successFunc, retry, timeout, RetryDelay);
+        }
+
+        public async Task<Response<T>> Execute<T>(Command<T> command, Func<T, bool> successFunc, int retry,
+            TimeSpan timeout, TimeSpan retryDelay) where T : new()
+        {
+            return await Observable.FromAsync(async () =>
+            {
+                await Start(command);
+                return await heosClient.ResponseObservable.FirstAsync(r => r.Sequence == command.Sequence)
+                    .Timeout(timeout)
+                    .Select(r =>
+                    {
+                        if (r.Success)
+                        {
+                            return new Response<T>(r, command.Parse(r));
+                        }
+                        else
+                        {
+                            Logger.Error($"Failed request: {command.Text}");
+                            return new Response<T>(new Response(command.Sequence), command.Empty);
+                        }
+                    });
+            })
+            .FirstAsync(r => successFunc(r.Payload))
+            .RetryAfterDelay<Response<T>, Exception>(retryDelay, retry)
+            .Catch(Observable.Return(new Response<T>(new Response(command.Sequence), command.Empty)));
+        }
+
+    }
+}
