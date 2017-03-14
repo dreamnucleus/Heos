@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DreamNucleus.Heos.Infrastructure.Heos;
-using Microsoft.AspNetCore.WebUtilities;
 
 namespace DreamNucleus.Heos.Commands.Player
 {
-    public sealed class SetVolumeCommand : Command<VolumeResponse>
+    public sealed class SetVolumeCommand : Command<EmptyResponse>
     {
         public int PlayerId { get; }
         public int Volume { get; }
@@ -20,11 +19,9 @@ namespace DreamNucleus.Heos.Commands.Player
             Volume = volume;
         }
 
-        public override VolumeResponse Parse(Response response)
+        public override EmptyResponse Parse(Response response)
         {
-            var query = QueryHelpers.ParseQuery(response.HeosResponse.Heos.Message);
-            var level = query["level"].Single();
-            return new VolumeResponse(int.Parse(level));
+            return Empty;
         }
     }
 }

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DreamNucleus.Heos.Infrastructure.Helpers;
 using DreamNucleus.Heos.Infrastructure.Heos;
-using Microsoft.AspNetCore.WebUtilities;
 
 namespace DreamNucleus.Heos.Commands.Player
 {
@@ -21,7 +21,7 @@ namespace DreamNucleus.Heos.Commands.Player
         public override PlayStateResponse Parse(Response response)
         {
             var query = QueryHelpers.ParseQuery(response.HeosResponse.Heos.Message);
-            var state = query["state"].Single();
+            var state = query["state"];
 
             if (Enum.TryParse(state, true, out PlayState playState))
             {

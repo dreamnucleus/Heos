@@ -1,7 +1,6 @@
-﻿
-using System;
+﻿using System;
 using System.Linq;
-using Microsoft.AspNetCore.WebUtilities;
+using DreamNucleus.Heos.Infrastructure.Helpers;
 
 namespace DreamNucleus.Heos.Events
 {
@@ -15,10 +14,10 @@ namespace DreamNucleus.Heos.Events
         {
             var query = QueryHelpers.ParseQuery(response.Message);
 
-            var pid = query["pid"].Single();
+            var pid = query["pid"];
             PlayerId = int.Parse(pid);
 
-            var playState = query["state"].Single();
+            var playState = query["state"];
             if (playState.Equals("play", StringComparison.OrdinalIgnoreCase))
             {
                 State = PlayerState.Play;

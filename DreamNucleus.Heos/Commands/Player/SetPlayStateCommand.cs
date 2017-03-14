@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DreamNucleus.Heos.Infrastructure.Heos;
-using Microsoft.AspNetCore.WebUtilities;
 
 namespace DreamNucleus.Heos.Commands.Player
 {
-    public class SetPlayStateCommand : Command<PlayStateResponse>
+    public class SetPlayStateCommand : Command<EmptyResponse>
     {
         public int PlayerId { get; }
         public PlayState PlayState { get; }
@@ -20,19 +19,9 @@ namespace DreamNucleus.Heos.Commands.Player
             PlayState = playState;
         }
 
-        public override PlayStateResponse Parse(Response response)
+        public override EmptyResponse Parse(Response response)
         {
-            var query = QueryHelpers.ParseQuery(response.HeosResponse.Heos.Message);
-            var state = query["state"].Single();
-
-            if (Enum.TryParse(state, true, out PlayState playState))
-            {
-                return new PlayStateResponse(playState);
-            }
-            else
-            {
-                return new PlayStateResponse();
-            }
+            return Empty;
         }
     }
 

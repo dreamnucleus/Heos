@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net451;netstandard1.6</TargetFrameworks>
+    <PackageId>DreamNucleus.Heos.Locator</PackageId>
+    <Title>DreamNucleus Heos Locator</Title>
+    <PackageVersion>0.1.2</PackageVersion>
+    <Authors>dreamnucleus</Authors>
+    <Description>DreamNucleus Heos Locator</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageTags>heos denon cli</PackageTags>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Rssdp" Version="3.0.0" />
+  </ItemGroup>
+
+</Project>

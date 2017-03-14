@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Microsoft.AspNetCore.WebUtilities;
+using DreamNucleus.Heos.Infrastructure.Helpers;
 
 namespace DreamNucleus.Heos.Events
 {
@@ -13,13 +13,13 @@ namespace DreamNucleus.Heos.Events
         {
             var query = QueryHelpers.ParseQuery(response.Message);
 
-            var pid = query["pid"].Single();
+            var pid = query["pid"];
             PlayerId = int.Parse(pid);
 
-            var level = query["level"].Single();
+            var level = query["level"];
             Volume = int.Parse(level);
 
-            var mute = query["mute"].Single();
+            var mute = query["mute"];
             Mute = mute.Equals("on", StringComparison.OrdinalIgnoreCase);
         }
     }

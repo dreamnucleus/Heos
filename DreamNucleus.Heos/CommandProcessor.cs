@@ -3,6 +3,7 @@ using System.Reactive.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using DreamNucleus.Heos.Commands;
+using DreamNucleus.Heos.Infrastructure.Extensions;
 using DreamNucleus.Heos.Infrastructure.Heos;
 using NLog;
 

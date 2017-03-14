@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DreamNucleus.Heos.Infrastructure.Helpers;
 using DreamNucleus.Heos.Infrastructure.Heos;
-using Microsoft.AspNetCore.WebUtilities;
 
 namespace DreamNucleus.Heos.Commands.Player
 {
-    public sealed class SetMuteCommand : Command<MuteResponse>
+    public sealed class SetMuteCommand : Command<EmptyResponse>
     {
         public int PlayerId { get; }
         public bool Mute { get; }
@@ -20,10 +20,9 @@ namespace DreamNucleus.Heos.Commands.Player
             Mute = mute;
         }
 
-        public override MuteResponse Parse(Response response)
+        public override EmptyResponse Parse(Response response)
         {
-            var query = QueryHelpers.ParseQuery(response.HeosResponse.Heos.Message);
-            return new MuteResponse(query["state"].Single().Equals("on", StringComparison.OrdinalIgnoreCase));
+            return Empty;
         }
     }
 }

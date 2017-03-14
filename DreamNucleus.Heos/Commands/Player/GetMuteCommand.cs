@@ -4,8 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using DreamNucleus.Heos.Infrastructure.Helpers;
 using DreamNucleus.Heos.Infrastructure.Heos;
-using Microsoft.AspNetCore.WebUtilities;
 
 namespace DreamNucleus.Heos.Commands.Player
 {
@@ -22,7 +22,7 @@ namespace DreamNucleus.Heos.Commands.Player
         public override MuteResponse Parse(Response response)
         {
             var query = QueryHelpers.ParseQuery(response.HeosResponse.Heos.Message);
-            return new MuteResponse(query["state"].Single().Equals("on", StringComparison.OrdinalIgnoreCase));
+            return new MuteResponse(query["state"].Equals("on", StringComparison.OrdinalIgnoreCase));
         }
     }
 

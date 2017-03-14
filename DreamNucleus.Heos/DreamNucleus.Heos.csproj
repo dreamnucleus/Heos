@@ -1,15 +1,37 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.6</TargetFramework>
+    <TargetFrameworks>net451;netstandard1.6</TargetFrameworks>
+    <PackageId>DreamNucleus.Heos</PackageId>
+    <Title>DreamNucleus Heos</Title>
+    <PackageVersion>0.1.2</PackageVersion>
+    <Authors>dreamnucleus</Authors>
+    <Description>DreamNucleus Heos Locator</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageTags>heos denon cli</PackageTags>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="1.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
-    <PackageReference Include="NLog" Version="5.0.0-beta06" />
     <PackageReference Include="System.Reactive.Linq" Version="3.1.1" />
     <PackageReference Include="Telnet" Version="0.8.0" />
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework)'=='net451'">
+    <PackageReference Include="NLog" Version="4.0.0" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard1.6'">
+    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="1.1.1" />
+    <PackageReference Include="NLog" Version="5.0.0-beta06" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\DreamNucleus.Heos.Locator\DreamNucleus.Heos.Locator.csproj" />
   </ItemGroup>
 
 </Project>

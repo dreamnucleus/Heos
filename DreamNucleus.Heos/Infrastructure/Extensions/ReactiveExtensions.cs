@@ -5,7 +5,7 @@ using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DreamNucleus.Heos
+namespace DreamNucleus.Heos.Infrastructure.Extensions
 {
     public static class ReactiveExtensions
     {

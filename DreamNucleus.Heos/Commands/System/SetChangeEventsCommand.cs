@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using DreamNucleus.Heos.Infrastructure.Heos;
-using Microsoft.AspNetCore.WebUtilities;
+
 
 namespace DreamNucleus.Heos.Commands.System
 {
-    public sealed class SetChangeEventsCommand : Command<ChangeEventsResponse>
+    public sealed class SetChangeEventsCommand : Command<EmptyResponse>
     {
         public bool Enable { get; }
 
@@ -18,25 +17,10 @@ namespace DreamNucleus.Heos.Commands.System
             Enable = enable;
         }
 
-        public override ChangeEventsResponse Parse(Response response)
+        public override EmptyResponse Parse(Response response)
         {
-            var query = QueryHelpers.ParseQuery(response.HeosResponse.Heos.Message);
-            var state = query["enable"].Single();
-            return new ChangeEventsResponse(state.Equals("on", StringComparison.OrdinalIgnoreCase));
+            return Empty;
         }
     }
 
-    public sealed class ChangeEventsResponse
-    {
-        public bool Enabled { get; set; }
-
-        public ChangeEventsResponse(bool enabled)
-        {
-            Enabled = enabled;
-        }
-
-        public ChangeEventsResponse()
-        {
-        }
-    }
 }

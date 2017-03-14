@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using DreamNucleus.Heos.Infrastructure;
-using Microsoft.AspNetCore.WebUtilities;
+using DreamNucleus.Heos.Infrastructure.Helpers;
 
 namespace DreamNucleus.Heos.Commands
 {
@@ -39,7 +39,7 @@ namespace DreamNucleus.Heos.Commands
 
             uriBuilder.Query = string.Empty;
 
-            return WebUtility.UrlDecode(QueryHelpers.AddQueryString(uriBuilder.ToString(), query.ToDictionary(q => q.Key, q => q.Value.Single())));
+            return WebUtility.UrlDecode(QueryHelpers.AddQueryString(uriBuilder.ToString(), query));
         }
     }
 }

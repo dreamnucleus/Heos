@@ -67,18 +67,8 @@ namespace DreamNucleus.Heos.Playground
                     if (getGroupInfoResponse.Success)
                     {
                     }
-
-                    var toggleGroupMuteResponse = await commandProcessor.Execute(new ToggleGroupMute(getGroupsResponse.Payload.First().Gid));
-
-                    if (toggleGroupMuteResponse.Success)
-                    {
-                        Console.ReadKey();
-                    }
                 }
                 
-
-                Console.ReadKey();
-
             });
 
             Console.ReadKey();

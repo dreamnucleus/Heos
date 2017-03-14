@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 using DreamNucleus.Heos;
 using DreamNucleus.Heos.Commands;
 using DreamNucleus.Heos.Events;
+using DreamNucleus.Heos.Infrastructure.Extensions;
+using DreamNucleus.Heos.Infrastructure.Helpers;
 using DreamNucleus.Heos.Interfaces;
-using Microsoft.AspNetCore.WebUtilities;
 using Newtonsoft.Json;
 using NLog;
 
@@ -89,7 +90,7 @@ namespace DreamNucleus.Heos.Infrastructure.Heos
             {
                 var query = QueryHelpers.ParseQuery(heosResponse.Heos.Message);
                 
-                var sequenceString = query.ContainsKey(Constants.Sequence) ? query[Constants.Sequence].Single() : null;
+                var sequenceString = query.ContainsKey(Constants.Sequence) ? query[Constants.Sequence] : null;
 
                 var success = heosResponse.Heos.Result.Equals("success", StringComparison.OrdinalIgnoreCase);
                 var sequence = -1;

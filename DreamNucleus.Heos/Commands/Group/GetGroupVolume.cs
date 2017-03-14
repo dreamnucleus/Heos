@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DreamNucleus.Heos.Infrastructure.Helpers;
 using DreamNucleus.Heos.Infrastructure.Heos;
-using Microsoft.AspNetCore.WebUtilities;
 
 namespace DreamNucleus.Heos.Commands.Group
 {
@@ -22,7 +22,7 @@ namespace DreamNucleus.Heos.Commands.Group
         {
             var query = QueryHelpers.ParseQuery(response.HeosResponse.Heos.Message);
 
-            return new GroupVolumeResponse(int.Parse(query["gid"].Single()), int.Parse(query["level"].Single()));
+            return new GroupVolumeResponse(int.Parse(query["gid"]), int.Parse(query["level"]));
         }
     }
 
