@@ -49,7 +49,8 @@ namespace DreamNucleus.Heos.Playground
                 var setChangeEventsCommandResponse = await commandProcessor.Execute(new SetChangeEventsCommand(true));
 
                 // get all players, ensure there is at least 1 player
-                var getPlayersResponse = await commandProcessor.Execute(new GetPlayersCommand(), r => r.Any(), 5, TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(2));
+                var getPlayersResponse = await commandProcessor.Execute(new GetPlayersCommand(), r => r.Any(),
+                    5, TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(2));
 
                 if (getPlayersResponse.Success)
                 {

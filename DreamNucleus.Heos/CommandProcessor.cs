@@ -76,6 +76,16 @@ namespace DreamNucleus.Heos
             return await Execute(command, successFunc, retry, timeout, RetryDelay);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="command">The command to execute</param>
+        /// <param name="successFunc">How to determine if the result is what you wanted</param>
+        /// <param name="retry">How many reties, 0 is no reties</param>
+        /// <param name="timeout">How long to wait for the response</param>
+        /// <param name="retryDelay">How long to wait before the retry</param>
+        /// <returns></returns>
         public async Task<Response<T>> Execute<T>(Command<T> command, Func<T, bool> successFunc, int retry,
             TimeSpan timeout, TimeSpan retryDelay) where T : new()
         {

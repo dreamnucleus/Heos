@@ -7,11 +7,11 @@ using DreamNucleus.Heos.Infrastructure.Heos;
 
 namespace DreamNucleus.Heos.Commands.Player
 {
-    public sealed class DownVolumeCommand : Command<EmptyResponse>
+    public sealed class VolumeDownCommand : Command<EmptyResponse>
     {
         public int PlayerId { get; }
 
-        public DownVolumeCommand(int playerId)
+        public VolumeDownCommand(int playerId)
             : base($"player/volume_down?pid={playerId}")
         {
             PlayerId = playerId;
