@@ -6,15 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="NLog.config" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="NLog.config" />
+    <None Include="NLog.config" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DreamNucleus.Heos\DreamNucleus.Heos.csproj" />
   </ItemGroup>
 
+  
 </Project>

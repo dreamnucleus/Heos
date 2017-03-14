@@ -10,7 +10,8 @@ namespace DreamNucleus.Heos.Commands.System
 {
     public sealed class SetChangeEventsCommand : Command<ChangeEventsResponse>
     {
-        public bool Enable { get; set; }
+        public bool Enable { get; }
+
         public SetChangeEventsCommand(bool enable)
             : base($"system/register_for_change_events?enable={(enable ? "on" : "off")}")
         {

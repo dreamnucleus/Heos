@@ -35,13 +35,13 @@ namespace DreamNucleus.Heos.Infrastructure.Telnet
                         var reply = await telnetClient.ReadAsync(TimeSpan.FromSeconds(20));
                         if (!string.IsNullOrWhiteSpace(reply))
                         {
-                            var responses = reply.Split('\r', '\n');
+                            var responses = reply.Split(new [] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
                             foreach (var response in responses)
                             {
                                 if (!string.IsNullOrWhiteSpace(response))
                                 {
                                     Logger.Trace("Telnet read: " + response);
-                                    messageSubject.OnNext(reply);
+                                    messageSubject.OnNext(response);
                                 }
                             }
                         }

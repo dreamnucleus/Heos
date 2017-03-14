@@ -9,10 +9,14 @@ namespace DreamNucleus.Heos.Commands.System
 {
     public class SignInCommand : Command<EmptyResponse>
     {
+        public string Username { get; }
+        public string Password { get; }
+
         public SignInCommand(string username, string password)
             : base($"system/sign_in?un={username}&pw={password}")
         {
-
+            Username = username;
+            Password = password;
         }
 
         public override EmptyResponse Parse(Response response)
