@@ -20,5 +20,39 @@ var getPlayersResponse = await commandProcessor.Execute(new GetPlayersCommand(),
 | Command | Implemented |
 | --- | --- |
 | Register for Change Events | Yes |
-|  HEOS Account Check | No |
-|  HEOS Account Sign In | Yes |
+| HEOS Account Check | No |
+| HEOS Account Sign In | Yes |
+| HEOS Account Sign Out | No |
+| HEOS System Heart Beat | No |
+| HEOS Speaker Reboot | No |
+| Prettify JSON response | No |
+
+## Player Commands
+
+| Command | Implemented |
+| --- | --- |
+| Get Players | Yes |
+| Get Player Info | Yes |
+| Get Play State | Yes |
+| Set Play State | Yes |
+| Get Now Playing Media | Yes |
+| Get Volume | Yes |
+| Set Volume | Yes |
+| Volume Up | Yes |
+| Volume Down | Yes |
+| Get Mute | Yes |
+| Set Mute | Yes |
+| Toggle Mute | Yes |
+| Get Play Mode | Yes |
+| Set Play Mode | Yes |
+| Get Queue | No |
+| Play Queue Item | No |
+| Remove Item(s) from Queue | No |
+| Save Queue as Playlist | No |
+| Clear Queue | No |
+| Play Next | Yes |
+| Play Previous | Yes |
+
+
+
+
