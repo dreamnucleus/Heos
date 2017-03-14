@@ -50,6 +50,7 @@ if (getPlayersResponse.Success)
 
 # CLI Coverage
 
+
 ## System Commands
 
 | Command | Implemented | Object |
@@ -61,6 +62,7 @@ if (getPlayersResponse.Success)
 | HEOS System Heart Beat | No |  |
 | HEOS Speaker Reboot | No |  |
 | Prettify JSON response | No |  |
+
 
 ## Player Commands
 
@@ -89,5 +91,64 @@ if (getPlayersResponse.Success)
 | Play Previous | Yes | PlayPreviousCommand |
 
 
+## Group Commands
+
+| Command | Implemented | Object |
+| --- | --- | --- |
+| Get Groups | No |  |
+| Get Group Info | No |  |
+| Set Group | Yes | SetGroupCommand, UngroupCommand |
+| Get Group Volume | No |  |
+| Set Group Volume | No |  |
+| Group Volume Up | No |  |
+| Group Volume Down | No |  |
+| Get Group Mute | No |  |
+| Set Group Mute | No |  |
+| Toggle Group Mute | No |  |
+
+## Browse Commands
+
+| Command | Implemented | Object |
+| --- | --- | --- |
+| Get Music Sources | No |  |
+| Get Source Info | No |  |
+| Browse Source | No |  |
+| Browse Source Containers | No |  |
+| Get Source Search Criteria | No |  |
+| Search | No |  |
+| Play Station | No |  |
+| Play Preset Station | No |  |
+| Play Input source | No |  |
+| Add Container to Queue with Options | No |  |
+| Add Track to Queue with Options | Yes | AddTrackToQueueCommand |
+| Get HEOS Playlists | No |  |
+| Rename HEOS Playlist | No |  |
+| Delete HEOS Playlist | No |  |
+| Get HEOS History | No |  |
+| Retrieve Album Metadata | No |  |
+| Set service option | No |  |
+
+
+## Change Events (Unsolicited Responses)
+
+| Command | Implemented | Object |
+| --- | --- | --- |
+| Sources Changed | Yes | SourcesChangedEvent |
+| Players Changed | No |  |
+| Group Changed | Yes | GroupChangedEvent |
+| Source Data Changed | No |  |
+| Player State Changed | Yes | PlayerStateChangedEvent |
+| Player Now Playing Changed | Yes | PlayerNowPlayingChangedEvent |
+| Player Now Playing Progress | Yes | PlayerNowPlayingProgressEvent |
+| Player Playback Error | No |  |
+| Player Queue Changed | No |  |
+| Player Volume Changed | Yes | PlayerVolumeChangedEvent |
+| Player Mute Changed | No |  |
+| Player Repeat Mode Changed | No |  |
+| Player Shuffle Mode Changed | No |  |
+| Group Status Changed | No |  |
+| Group Volume Changed | No |  |
+| Group Mute Changed | No |  |
+| User Changed | No |  |
 
 

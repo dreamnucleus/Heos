@@ -14,6 +14,7 @@ namespace DreamNucleus.Heos.Commands.Browse
         public BrowseServerCommand(int sourceId)
             : base ($"browse/browse?sid={sourceId}")
         {
+            SourceId = sourceId;
         }
 
         public override List<BrowseServerResponse> Parse(Response response)

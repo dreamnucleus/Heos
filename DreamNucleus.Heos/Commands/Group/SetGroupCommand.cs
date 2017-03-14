@@ -9,9 +9,12 @@ namespace DreamNucleus.Heos.Commands.Group
 {
     public class SetGroupCommand : Command<EmptyResponse>
     {
+        public int[] PlayerIds { get; }
+
         public SetGroupCommand(params int[] playerIds)
             : base($"group/set_group?pid={string.Join(",", playerIds)}")
         {
+            PlayerIds = playerIds;
         }
 
         public override EmptyResponse Parse(Response response)

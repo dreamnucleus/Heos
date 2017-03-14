@@ -13,7 +13,7 @@ namespace DreamNucleus.Heos.Events
             eventCreators.Add("player_now_playing_changed", h => new PlayerNowPlayingChangedEvent(h));
             eventCreators.Add("player_volume_changed", h => new PlayerVolumeChangedEvent(h));
             eventCreators.Add("player_state_changed", h => new PlayerStateChangedEvent(h));
-            eventCreators.Add("groups_changed", h => new GroupsChangedEvent());
+            eventCreators.Add("groups_changed", h => new GroupChangedEvent());
             eventCreators.Add("player_now_playing_progress", h => new PlayerNowPlayingProgressEvent(h));
             eventCreators.Add("sources_changed", h => new SourcesChangedEvent(h));
         }
