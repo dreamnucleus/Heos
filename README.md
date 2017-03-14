@@ -1,6 +1,8 @@
-# Heos
+# HEOS CLI Client
 
-https://usa.denon.com/us/product/hometheater/receivers/avrx6300h?docname=HEOS_CLI_PROTOCOL_Specification_290616.pdf
+A .Net [HEOS CLI](
+https://usa.denon.com/us/product/hometheater/receivers/avrx6300h?docname=HEOS_CLI_PROTOCOL_Specification_290616.pdf) client using Reactive Extensions.
+
 
 
 ```cs
