@@ -1,5 +1,8 @@
 # Heos
 
+https://usa.denon.com/us/product/hometheater/receivers/avrx6300h?docname=HEOS_CLI_PROTOCOL_Specification_290616.pdf
+
+
 ```cs
 // create a telnet client with a list of IP addresses
 var telnetClient = new SimpleTelnetClient("192.168.1.43", "192.168.1.45", "192.168.1.47");
