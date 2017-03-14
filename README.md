@@ -52,41 +52,41 @@ if (getPlayersResponse.Success)
 
 ## System Commands
 
-| Command | Implemented |
-| --- | --- |
-| Register for Change Events | Yes |
-| HEOS Account Check | No |
-| HEOS Account Sign In | Yes |
-| HEOS Account Sign Out | No |
-| HEOS System Heart Beat | No |
-| HEOS Speaker Reboot | No |
-| Prettify JSON response | No |
+| Command | Implemented | Object |
+| --- | --- | --- |
+| Register for Change Events | Yes | SetChangeEventsCommand |
+| HEOS Account Check | No |  |
+| HEOS Account Sign In | Yes | SignInCommand |
+| HEOS Account Sign Out | No |  |
+| HEOS System Heart Beat | No |  |
+| HEOS Speaker Reboot | No |  |
+| Prettify JSON response | No |  |
 
 ## Player Commands
 
-| Command | Implemented |
-| --- | --- |
-| Get Players | Yes |
-| Get Player Info | Yes |
-| Get Play State | Yes |
-| Set Play State | Yes |
-| Get Now Playing Media | Yes |
-| Get Volume | Yes |
-| Set Volume | Yes |
-| Volume Up | Yes |
-| Volume Down | Yes |
-| Get Mute | Yes |
-| Set Mute | Yes |
-| Toggle Mute | Yes |
-| Get Play Mode | Yes |
-| Set Play Mode | Yes |
-| Get Queue | No |
-| Play Queue Item | No |
-| Remove Item(s) from Queue | No |
-| Save Queue as Playlist | No |
-| Clear Queue | No |
-| Play Next | Yes |
-| Play Previous | Yes |
+| Command | Implemented | Object |
+| --- | --- | --- |
+| Get Players | Yes | GetPlayersCommand |
+| Get Player Info | No |  |
+| Get Play State | Yes | GetPlayStateCommand |
+| Set Play State | Yes | SetPlayStateCommand |
+| Get Now Playing Media | Yes | GetNowPlayingCommand |
+| Get Volume | Yes | GetVolumeCommand |
+| Set Volume | Yes | SetVolumeCommand |
+| Volume Up | Yes | VolumeUpCommand |
+| Volume Down | Yes | VolumeDownCommand |
+| Get Mute | Yes | GetMuteCommand |
+| Set Mute | Yes | SetMuteCommand |
+| Toggle Mute | Yes | ToggleMuteCommand |
+| Get Play Mode | No |  |
+| Set Play Mode | Yes | SetPlayModeCommand |
+| Get Queue | Yes | GetQueueCommand |
+| Play Queue Item | No |  |
+| Remove Item(s) from Queue | No |  |
+| Save Queue as Playlist | No |  |
+| Clear Queue | No |  |
+| Play Next | Yes | PlayNextCommand |
+| Play Previous | Yes | PlayPreviousCommand |
 
 
 
