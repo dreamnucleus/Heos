@@ -28,7 +28,7 @@ namespace DreamNucleus.Heos.Commands.Player
 
     public sealed class MuteResponse
     {
-        public bool Mute { get; set; }
+        public bool Mute { get; }
 
         public MuteResponse(bool mute)
         {

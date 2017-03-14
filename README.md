@@ -95,16 +95,17 @@ if (getPlayersResponse.Success)
 
 | Command | Implemented | Object |
 | --- | --- | --- |
-| Get Groups | No |  |
-| Get Group Info | No |  |
-| Set Group | Yes | SetGroupCommand, UngroupCommand |
-| Get Group Volume | No |  |
-| Set Group Volume | No |  |
-| Group Volume Up | No |  |
-| Group Volume Down | No |  |
-| Get Group Mute | No |  |
-| Set Group Mute | No |  |
-| Toggle Group Mute | No |  |
+| Get Groups | Yes | GetGroupsCommand |
+| Get Group Info | Yes | GetGroupInfoCommand |
+| Set Group | Yes | SetGroupCommand, ModifyGroupCommand, UngroupCommand |
+| Get Group Volume | Yes | GetGroupVolume |
+| Set Group Volume | Yes | SetGroupVolume |
+| Group Volume Up | Yes | GroupVolumeUpCommand |
+| Group Volume Down | Yes | GroupVolumeDownCommand |
+| Get Group Mute | Yes | GetGroupMute |
+| Set Group Mute | Yes | SetGroupMute |
+| Toggle Group Mute | Yes | ToggleGroupMute |
+
 
 ## Browse Commands
 

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reactive.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using DreamNucleus.Heos.Commands.Group;
 using DreamNucleus.Heos.Commands.Player;
 using DreamNucleus.Heos.Commands.System;
 using DreamNucleus.Heos.Events;
@@ -57,6 +58,24 @@ namespace DreamNucleus.Heos.Playground
                     Console.WriteLine("Found players: " + string.Join(", ", getPlayersResponse.Payload.Select(p => p.Name)));
                 }
 
+                var getGroupsResponse = await commandProcessor.Execute(new GetGroupsCommand());
+
+                if (getGroupsResponse.Success && getGroupsResponse.Payload.Any())
+                {
+                    var getGroupInfoResponse = await commandProcessor.Execute(new GetGroupInfoCommand(getGroupsResponse.Payload.First().Gid));
+
+                    if (getGroupInfoResponse.Success)
+                    {
+                    }
+
+                    var toggleGroupMuteResponse = await commandProcessor.Execute(new ToggleGroupMute(getGroupsResponse.Payload.First().Gid));
+
+                    if (toggleGroupMuteResponse.Success)
+                    {
+                        Console.ReadKey();
+                    }
+                }
+                
 
                 Console.ReadKey();
 
