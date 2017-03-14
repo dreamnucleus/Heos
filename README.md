@@ -12,3 +12,13 @@ var commandProcessor = new CommandProcessor(new HeosClient(telnetClient, Cancell
 var getPlayersResponse = await commandProcessor.Execute(new GetPlayersCommand(), r => r.Any(), 5,
    TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(2));
 ```
+
+# CLI Coverage
+
+## System Commands
+
+| Command | Implemented |
+| --- | --- |
+| Register for Change Events | Yes |
+|  HEOS Account Check | No |
+|  HEOS Account Sign In | Yes |
