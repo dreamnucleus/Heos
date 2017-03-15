@@ -13,5 +13,4 @@
     <ProjectReference Include="..\DreamNucleus.Heos\DreamNucleus.Heos.csproj" />
   </ItemGroup>
 
-  
 </Project>

@@ -10,7 +10,7 @@ using DreamNucleus.Heos.Events;
 using DreamNucleus.Heos.Infrastructure.Heos;
 using DreamNucleus.Heos.Infrastructure.Telnet;
 
-namespace DreamNucleus.Heos.Playground
+namespace DreamNucleus.Heos.Playground.NetCore
 {
     class Program
     {

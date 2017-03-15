@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamNucleus.Heos", "DreamNucleus.Heos\DreamNucleus.Heos.csproj", "{2902ADEA-7CCF-4FF9-897A-146C65C3A7B8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamNucleus.Heos.Playground", "DreamNucleus.Heos.Playground\DreamNucleus.Heos.Playground.csproj", "{37CDDF96-0D91-48A7-9A36-D1F1FF2217D9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamNucleus.Heos.Locator", "DreamNucleus.Heos.Locator\DreamNucleus.Heos.Locator.csproj", "{47014FCD-5CD9-4735-BE20-998529BCF7F6}"
 EndProject
@@ -15,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamNucleus.Heos.Playground.Net45", "DreamNucleus.Heos.Playground.Net45\DreamNucleus.Heos.Playground.Net45.csproj", "{75590779-157D-45C2-85EA-89C087F95591}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamNucleus.Heos.Playground.NetCore", "DreamNucleus.Heos.Playground.NetCore\DreamNucleus.Heos.Playground.NetCore.csproj", "{46054704-60A4-4C62-9D50-0935A16BF831}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,10 +26,6 @@ Global
 		{2902ADEA-7CCF-4FF9-897A-146C65C3A7B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2902ADEA-7CCF-4FF9-897A-146C65C3A7B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2902ADEA-7CCF-4FF9-897A-146C65C3A7B8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{37CDDF96-0D91-48A7-9A36-D1F1FF2217D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{37CDDF96-0D91-48A7-9A36-D1F1FF2217D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{37CDDF96-0D91-48A7-9A36-D1F1FF2217D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{37CDDF96-0D91-48A7-9A36-D1F1FF2217D9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{47014FCD-5CD9-4735-BE20-998529BCF7F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{47014FCD-5CD9-4735-BE20-998529BCF7F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47014FCD-5CD9-4735-BE20-998529BCF7F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -38,6 +34,10 @@ Global
 		{75590779-157D-45C2-85EA-89C087F95591}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75590779-157D-45C2-85EA-89C087F95591}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75590779-157D-45C2-85EA-89C087F95591}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46054704-60A4-4C62-9D50-0935A16BF831}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46054704-60A4-4C62-9D50-0935A16BF831}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46054704-60A4-4C62-9D50-0935A16BF831}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46054704-60A4-4C62-9D50-0935A16BF831}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

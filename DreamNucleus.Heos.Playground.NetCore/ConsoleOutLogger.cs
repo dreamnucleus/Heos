@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Common.Logging;
 using Common.Logging.Simple;
 
-namespace DreamNucleus.Heos.Playground
+namespace DreamNucleus.Heos.Playground.NetCore
 {
     // https://github.com/net-commons/common-logging/tree/master/src/Common.Logging/Logging/Simple
     // TODO: remove, were missing in NuGet?
