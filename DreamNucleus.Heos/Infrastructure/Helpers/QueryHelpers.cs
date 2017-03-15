@@ -10,7 +10,7 @@ namespace DreamNucleus.Heos.Infrastructure.Helpers
     {
         public static IDictionary<string, string> ParseQuery(string queryString)
         {
-#if NET451
+#if NET45
             return System.Web.HttpUtility.ParseQueryString(queryString).ToDictionary();
 #else
             return Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(queryString).ToDictionary(q => q.Key, q => q.Value.Single());
@@ -19,14 +19,14 @@ namespace DreamNucleus.Heos.Infrastructure.Helpers
 
         public static string AddQueryString(string uri, IDictionary<string, string> queryString)
         {
-#if NET451
+#if NET45
             return uri + "?" + queryString.ToNameValueCollection().ToString();
 #else
             return Microsoft.AspNetCore.WebUtilities.QueryHelpers.AddQueryString(uri, queryString);
 #endif
         }
 
-#if NET451
+#if NET45
         private static IDictionary<string, string> ToDictionary(this System.Collections.Specialized.NameValueCollection nameValueCollection)
         {
             var dictionary = new Dictionary<string, string>();

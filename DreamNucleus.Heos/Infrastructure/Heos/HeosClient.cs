@@ -4,6 +4,7 @@ using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Threading;
 using System.Threading.Tasks;
+using Common.Logging;
 using DreamNucleus.Heos;
 using DreamNucleus.Heos.Commands;
 using DreamNucleus.Heos.Events;
@@ -11,13 +12,12 @@ using DreamNucleus.Heos.Infrastructure.Extensions;
 using DreamNucleus.Heos.Infrastructure.Helpers;
 using DreamNucleus.Heos.Interfaces;
 using Newtonsoft.Json;
-using NLog;
 
 namespace DreamNucleus.Heos.Infrastructure.Heos
 {
     public class HeosClient
     {
-        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        private static readonly ILog Logger = LogManager.GetLogger<HeosClient>();
 
         private readonly CancellationToken cancellationToken;
         private readonly IHeosTelnetClient heosTelnetClient;

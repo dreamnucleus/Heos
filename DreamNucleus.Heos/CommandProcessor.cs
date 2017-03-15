@@ -2,16 +2,16 @@
 using System.Reactive.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Common.Logging;
 using DreamNucleus.Heos.Commands;
 using DreamNucleus.Heos.Infrastructure.Extensions;
 using DreamNucleus.Heos.Infrastructure.Heos;
-using NLog;
 
 namespace DreamNucleus.Heos
 {
     public class CommandProcessor
     {
-        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        private static readonly ILog Logger = LogManager.GetLogger<CommandProcessor>();
 
         private readonly HeosClient heosClient;
 

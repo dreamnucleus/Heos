@@ -5,15 +5,16 @@ using System.Reactive.Subjects;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Common.Logging;
+using DreamNucleus.Heos.Infrastructure.Heos;
 using DreamNucleus.Heos.Interfaces;
-using NLog;
 using PrimS.Telnet;
 
 namespace DreamNucleus.Heos.Infrastructure.Telnet
 {
     public class SimpleTelnetClient : IHeosTelnetClient, IDisposable
     {
-        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        private static readonly ILog Logger = LogManager.GetLogger<SimpleTelnetClient>();
 
         private readonly Client telnetClient;
         private readonly CancellationTokenSource cancellationTokenSource;
@@ -48,7 +49,7 @@ namespace DreamNucleus.Heos.Infrastructure.Telnet
                     }
                     catch (Exception exception)
                     {
-                        Logger.Error(exception, "Telnet read error.");
+                        Logger.Error("Telnet read error.", exception);
                     }
                 }
             });

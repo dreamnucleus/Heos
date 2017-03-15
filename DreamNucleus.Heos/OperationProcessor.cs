@@ -5,15 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Common.Logging;
+using DreamNucleus.Heos.Infrastructure.Telnet;
 using DreamNucleus.Heos.Operations;
-using NLog;
-using NLog.Fluent;
 
 namespace DreamNucleus.Heos
 {
     public class OperationProcessor
     {
-        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        private static readonly ILog Logger = LogManager.GetLogger<OperationProcessor>();
 
         private readonly CommandProcessor commandProcessor;
 
@@ -47,7 +47,7 @@ namespace DreamNucleus.Heos
                     }
                     catch (Exception exception)
                     {
-                        Logger.Error(exception, "Read loop exception:");
+                        Logger.Error("Read loop exception", exception);
                     }
                 }
             });
