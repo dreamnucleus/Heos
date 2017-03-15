@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using DreamNucleus.Heos.Commands.Group;
@@ -10,14 +12,12 @@ using DreamNucleus.Heos.Events;
 using DreamNucleus.Heos.Infrastructure.Heos;
 using DreamNucleus.Heos.Infrastructure.Telnet;
 
-namespace DreamNucleus.Heos.Playground
+namespace DreamNucleus.Heos.Playground.Net45
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Common.Logging.LogManager.Adapter = new ConsoleOutLoggerFactoryAdapter();
-
             Task.Run(async () =>
             {
                 // create a telnet client with a list of IP addresses
@@ -70,7 +70,7 @@ namespace DreamNucleus.Heos.Playground
                     {
                     }
                 }
-                
+
             });
 
             Console.ReadKey();

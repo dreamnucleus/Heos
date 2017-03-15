@@ -4,9 +4,9 @@
     <TargetFrameworks>net45;netstandard1.6</TargetFrameworks>
     <PackageId>DreamNucleus.Heos</PackageId>
     <Title>DreamNucleus Heos</Title>
-    <PackageVersion>0.1.3</PackageVersion>
+    <Description>DreamNucleus Heos</Description>
+    <PackageVersion>0.1.5</PackageVersion>
     <Authors>dreamnucleus</Authors>
-    <Description>DreamNucleus Heos Locator</Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageTags>heos denon cli</PackageTags>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
@@ -16,23 +16,27 @@
 
   <ItemGroup>
     <PackageReference Include="System.Reactive.Linq" Version="3.0.0" />
-    <PackageReference Include="Telnet" Version="0.8.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='net45'">
+    <Reference Include="System.Web" />
   </ItemGroup>
   
   <ItemGroup Condition="'$(TargetFramework)'=='net45'">
-    <Reference Include="System.Web" />
+    <PackageReference Include="Telnet" Version="0.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="7.0.1" />
     <PackageReference Include="Common.Logging" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard1.6'">
+    <PackageReference Include="Telnet" Version="0.8.0" />
     <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="1.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
     <PackageReference Include="Common.Logging" Version="[3.4.0-Beta2, )" />
   </ItemGroup>
   
-  <ItemGroup>
+  <!--<ItemGroup>
     <ProjectReference Include="..\DreamNucleus.Heos.Locator\DreamNucleus.Heos.Locator.csproj" />
-  </ItemGroup>
+  </ItemGroup>-->
 
 </Project>

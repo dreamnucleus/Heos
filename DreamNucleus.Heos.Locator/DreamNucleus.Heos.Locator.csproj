@@ -4,9 +4,9 @@
     <TargetFrameworks>net45;netstandard1.6</TargetFrameworks>
     <PackageId>DreamNucleus.Heos.Locator</PackageId>
     <Title>DreamNucleus Heos Locator</Title>
-    <PackageVersion>0.1.3</PackageVersion>
-    <Authors>dreamnucleus</Authors>
     <Description>DreamNucleus Heos Locator</Description>
+    <PackageVersion>0.1.5</PackageVersion>
+    <Authors>dreamnucleus</Authors>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageTags>heos denon cli</PackageTags>
     <NoWarn>$(NoWarn);CS1591</NoWarn>

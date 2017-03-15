@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="NLog.config" CopyToOutputDirectory="PreserveNewest" />
+    <PackageReference Include="Common.Logging" Version="3.4.0-Beta2" />
   </ItemGroup>
 
   <ItemGroup>

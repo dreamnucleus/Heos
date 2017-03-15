@@ -9,6 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamNucleus.Heos.Playgroun
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamNucleus.Heos.Locator", "DreamNucleus.Heos.Locator\DreamNucleus.Heos.Locator.csproj", "{47014FCD-5CD9-4735-BE20-998529BCF7F6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{61B96B03-1C65-4F92-8599-A407ACCB52EF}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet.ps1 = NuGet.ps1
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamNucleus.Heos.Playground.Net45", "DreamNucleus.Heos.Playground.Net45\DreamNucleus.Heos.Playground.Net45.csproj", "{75590779-157D-45C2-85EA-89C087F95591}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +34,10 @@ Global
 		{47014FCD-5CD9-4735-BE20-998529BCF7F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47014FCD-5CD9-4735-BE20-998529BCF7F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47014FCD-5CD9-4735-BE20-998529BCF7F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75590779-157D-45C2-85EA-89C087F95591}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75590779-157D-45C2-85EA-89C087F95591}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75590779-157D-45C2-85EA-89C087F95591}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75590779-157D-45C2-85EA-89C087F95591}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -20,7 +20,7 @@ namespace DreamNucleus.Heos.Infrastructure.Helpers
         public static string AddQueryString(string uri, IDictionary<string, string> queryString)
         {
 #if NET45
-            return uri + "?" + queryString.ToNameValueCollection().ToString();
+            return uri + (queryString.Any() ? "?" + queryString.ToQueryString() : string.Empty);
 #else
             return Microsoft.AspNetCore.WebUtilities.QueryHelpers.AddQueryString(uri, queryString);
 #endif
@@ -37,16 +37,9 @@ namespace DreamNucleus.Heos.Infrastructure.Helpers
             return dictionary;
         }
 
-        public static System.Collections.Specialized.NameValueCollection ToNameValueCollection(this IDictionary<string, string> dictionary)
+        public static string ToQueryString(this IDictionary<string, string> dictionary)
         {
-            var nameValueCollection = new System.Collections.Specialized.NameValueCollection();
-
-            foreach(var item in dictionary)
-            {
-                nameValueCollection.Add(item.Key, item.Value);
-            }
-
-            return nameValueCollection;
+            return string.Join("&", dictionary.Select(d => d.Key + "=" + d.Value));
         }
 #endif
     }
