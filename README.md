@@ -56,12 +56,12 @@ if (getPlayersResponse.Success)
 | Command | Implemented | Object |
 | --- | --- | --- |
 | Register for Change Events | Yes | SetChangeEventsCommand |
-| HEOS Account Check | No |  |
-| HEOS Account Sign In | Yes | SignInCommand |
-| HEOS Account Sign Out | No |  |
-| HEOS System Heart Beat | No |  |
-| HEOS Speaker Reboot | No |  |
-| Prettify JSON response | No |  |
+| HEOS Account Check | Yes | AccountCheckCommand |
+| HEOS Account Sign In | Yes | AccountSignInCommand |
+| HEOS Account Sign Out | Yes | AccountSignOutCommand |
+| HEOS System Heart Beat | Yes | SystemHeartBeatCommand |
+| HEOS Speaker Reboot | Yes | CurrentSpeakerRebootCommand |
+| Prettify JSON response | Yes | PrettifyJsonCommand |
 
 
 ## Player Commands
