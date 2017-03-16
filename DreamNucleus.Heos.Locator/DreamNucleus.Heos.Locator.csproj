@@ -12,6 +12,9 @@
     <NoWarn>$(NoWarn);CS1591</NoWarn>
     <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <PackageProjectUrl>https://github.com/dreamnucleus/Heos</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/dreamnucleus/Heos/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>

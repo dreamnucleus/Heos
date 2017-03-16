@@ -3,15 +3,18 @@
   <PropertyGroup>
     <TargetFrameworks>net45;netstandard1.6</TargetFrameworks>
     <PackageId>DreamNucleus.Heos</PackageId>
-    <Title>DreamNucleus Heos</Title>
-    <Description>DreamNucleus Heos</Description>
-    <PackageVersion>0.1.5</PackageVersion>
+    <Title>DreamNucleus HEOS CLI Client</Title>
+    <Description>A .Net HEOS CLI client using Reactive Extensions</Description>
+    <PackageVersion>0.2.0</PackageVersion>
     <Authors>dreamnucleus</Authors>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageTags>heos denon cli</PackageTags>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
     <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <PackageProjectUrl>https://github.com/dreamnucleus/Heos</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/dreamnucleus/Heos/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>
