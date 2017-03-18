@@ -23,7 +23,7 @@ namespace DreamNucleus.Heos.Commands.Player
             var query = QueryHelpers.ParseQuery(response.HeosResponse.Heos.Message);
             var state = query["state"];
 
-            if (Enum.TryParse(state, true, out PlayState playState))
+            if (Enum.TryParse(state, true, out PlayStates playState))
             {
                 return new PlayStateResponse(playState);
             }

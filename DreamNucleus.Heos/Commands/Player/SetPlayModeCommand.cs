@@ -11,10 +11,10 @@ namespace DreamNucleus.Heos.Commands.Player
     public class SetPlayModeCommand : Command<PlayModeResponse>
     {
         public int PlayerId { get; }
-        public RepeatState RepeatState { get; }
-        public ShuffleState ShuffleState { get; }
+        public RepeatStates RepeatState { get; }
+        public ShuffleStates ShuffleState { get; }
 
-        public SetPlayModeCommand(int playerId, RepeatState repeatState, ShuffleState shuffleState)
+        public SetPlayModeCommand(int playerId, RepeatStates repeatState, ShuffleStates shuffleState)
             : base($"player/set_play_mode?pid={playerId}&repeat={repeatState.ToCommandString()}&shuffle={shuffleState.ToString().ToLower()}")
         {
             PlayerId = playerId;
@@ -28,17 +28,17 @@ namespace DreamNucleus.Heos.Commands.Player
             var shuffle = query["shuffle"];
 
             // TODO: fix
-            if (!Enum.TryParse(shuffle, true, out ShuffleState shuffleState))
+            if (!Enum.TryParse(shuffle, true, out ShuffleStates shuffleState))
             {
-                shuffleState = ShuffleState.Unknown;
+                shuffleState = ShuffleStates.Unknown;
             }
 
             var repeat = query["repeat"];
 
-            var repeatState = RepeatState.Unknown;
-            foreach (RepeatState repeatStateToTest in Enum.GetValues(typeof(RepeatState)))
+            var repeatState = RepeatStates.Unknown;
+            foreach (RepeatStates repeatStateToTest in Enum.GetValues(typeof(RepeatStates)))
             {
-                if (repeatState != RepeatState.Unknown && repeatState.ToCommandString().Equals(repeat, StringComparison.OrdinalIgnoreCase))
+                if (repeatState != RepeatStates.Unknown && repeatState.ToCommandString().Equals(repeat, StringComparison.OrdinalIgnoreCase))
                 {
                     repeatState = repeatStateToTest;
                 }
@@ -50,21 +50,21 @@ namespace DreamNucleus.Heos.Commands.Player
 
     public class PlayModeResponse
     {
-        public RepeatState RepeatState { get; } = RepeatState.Unknown;
-        public ShuffleState ShuffleState { get; } = ShuffleState.Unknown;
+        public RepeatStates RepeatState { get; } = RepeatStates.Unknown;
+        public ShuffleStates ShuffleState { get; } = ShuffleStates.Unknown;
 
         public PlayModeResponse()
         {
         }
 
-        public PlayModeResponse(RepeatState repeatState, ShuffleState shuffleState)
+        public PlayModeResponse(RepeatStates repeatState, ShuffleStates shuffleState)
         {
             RepeatState = repeatState;
             ShuffleState = shuffleState;
         }
     }
 
-    public enum RepeatState
+    public enum RepeatStates
     {
         Unknown,
         OnAll,
@@ -74,15 +74,15 @@ namespace DreamNucleus.Heos.Commands.Player
 
     public static class RepeatStatesExtensions
     {
-        public static string ToCommandString(this RepeatState repeatState)
+        public static string ToCommandString(this RepeatStates repeatState)
         {
             switch (repeatState)
             {
-                case RepeatState.OnAll:
+                case RepeatStates.OnAll:
                     return "on_all";
-                case RepeatState.OnOne:
+                case RepeatStates.OnOne:
                     return "on_one";
-                case RepeatState.Off:
+                case RepeatStates.Off:
                     return "off";
                 default:
                     throw new ArgumentOutOfRangeException(nameof(repeatState), repeatState, null);
@@ -90,7 +90,7 @@ namespace DreamNucleus.Heos.Commands.Player
         }
     }
 
-    public enum ShuffleState
+    public enum ShuffleStates
     {
         Unknown,
         On,

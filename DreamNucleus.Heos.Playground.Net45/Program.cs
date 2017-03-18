@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using DreamNucleus.Heos.Commands.Group;
 using DreamNucleus.Heos.Commands.Player;
 using DreamNucleus.Heos.Commands.System;
-using DreamNucleus.Heos.Domain.Extensions;
+using DreamNucleus.Heos.Domain;
 using DreamNucleus.Heos.Events;
 using DreamNucleus.Heos.Infrastructure.Heos;
 using DreamNucleus.Heos.Infrastructure.Telnet;
@@ -19,9 +19,6 @@ namespace DreamNucleus.Heos.Playground.Net45
     {
         static void Main(string[] args)
         {
-            var player = new DreamNucleus.Heos.Domain.Player();
-            player.SetMute(true);
-
             Task.Run(async () =>
             {
                 // create a telnet client with a list of IP addresses
@@ -62,6 +59,10 @@ namespace DreamNucleus.Heos.Playground.Net45
                 if (getPlayersResponse.Success)
                 {
                     Console.WriteLine("Found players: " + string.Join(", ", getPlayersResponse.Payload.Select(p => p.Name)));
+
+                    var queueResponse = await commandProcessor.Execute(getPlayersResponse.Payload.First(t => t.Name.Contains("7")).GetQueue());
+
+                    Console.WriteLine();
                 }
 
                 var getGroupsResponse = await commandProcessor.Execute(new GetGroupsCommand());

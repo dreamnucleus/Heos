@@ -8,7 +8,7 @@ using DreamNucleus.Heos.Infrastructure.Heos;
 
 namespace DreamNucleus.Heos.Commands.Player
 {
-    public sealed class SetMuteCommand : Command<EmptyResponse>
+    public sealed class SetMuteCommand : Command
     {
         public int PlayerId { get; }
         public bool Mute { get; }
@@ -18,11 +18,6 @@ namespace DreamNucleus.Heos.Commands.Player
         {
             PlayerId = playerId;
             Mute = mute;
-        }
-
-        public override EmptyResponse Parse(Response response)
-        {
-            return Empty;
         }
     }
 }

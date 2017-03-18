@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DreamNucleus.Heos.Commands.Player;
+using DreamNucleus.Heos.Domain;
 using DreamNucleus.Heos.Infrastructure.Heos;
 using Newtonsoft.Json;
 
@@ -33,6 +34,8 @@ namespace DreamNucleus.Heos.Commands
             {
                 ContractResolver = new TCustomContractResolver()
             };
+
+            JsonSerializerSettings.Converters.Add(new ModelsJsonConverter());
         }
 
         protected Command(string text)

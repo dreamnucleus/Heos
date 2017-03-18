@@ -25,7 +25,7 @@ namespace DreamNucleus.Heos.Operations
 
             foreach (var deviceId in deviceIdsToCheck)
             {
-                var playState = PlayState.Unknown;
+                var playState = PlayStates.Unknown;
                 var mute = false;
                 var volume = 0;
 
@@ -59,7 +59,7 @@ namespace DreamNucleus.Heos.Operations
                         }
                     });
 
-                if (playState != PlayState.Play || mute || volume <= audibleVolume)
+                if (playState != PlayStates.Play || mute || volume <= audibleVolume)
                 {
                     notAudibleCount++;
                 }

@@ -10,9 +10,9 @@ namespace DreamNucleus.Heos.Commands.Player
     public class SetPlayStateCommand : Command<EmptyResponse>
     {
         public int PlayerId { get; }
-        public PlayState PlayState { get; }
+        public PlayStates PlayState { get; }
 
-        public SetPlayStateCommand(int playerId, PlayState playState)
+        public SetPlayStateCommand(int playerId, PlayStates playState)
             : base($"player/set_play_state?pid={playerId}&state={playState.ToString().ToLower()} ")
         {
             PlayerId = playerId;
@@ -27,19 +27,19 @@ namespace DreamNucleus.Heos.Commands.Player
 
     public class PlayStateResponse
     {
-        public PlayState PlayState { get; } = PlayState.Unknown;
+        public PlayStates PlayState { get; } = PlayStates.Unknown;
 
         public PlayStateResponse()
         {
         }
 
-        public PlayStateResponse(PlayState playState)
+        public PlayStateResponse(PlayStates playState)
         {
             PlayState = playState;
         }
     }
 
-    public enum PlayState
+    public enum PlayStates
     {
         Unknown,
         Play,
