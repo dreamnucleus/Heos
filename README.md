@@ -4,6 +4,18 @@ A .Net [HEOS CLI](
 https://usa.denon.com/us/product/hometheater/receivers/avrx6300h?docname=HEOS_CLI_PROTOCOL_Specification_290616.pdf) client using Reactive Extensions.
 
 
+## NuGet
+
+Packages availble for .NETFramework 4.5 and .NETStandard 1.6
+
+https://www.nuget.org/packages/DreamNucleus.Heos/
+
+```
+Install-Package DreamNucleus.Heos
+```
+
+
+# Example
 
 ```cs
 // create a telnet client with a list of IP addresses
