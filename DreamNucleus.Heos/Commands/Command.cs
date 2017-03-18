@@ -23,7 +23,7 @@ namespace DreamNucleus.Heos.Commands
 
     public abstract class Command<TReturn, TCustomContractResolver> : Command<TReturn>
         where TReturn : new()
-        where TCustomContractResolver : CustomContractResolver<UnderscorePropertyNamesContractResolver>, new()
+        where TCustomContractResolver : UnderscorePropertyNamesContractResolver, new()
     {
         private static readonly JsonSerializerSettings JsonSerializerSettings;
 

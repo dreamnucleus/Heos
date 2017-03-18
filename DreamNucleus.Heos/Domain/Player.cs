@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DreamNucleus.Heos.Domain
 {
@@ -14,5 +16,15 @@ namespace DreamNucleus.Heos.Domain
         public string Model { get; set; }
 
         public string IpAddress { get; set; }
+    }
+
+    public class PlayerContractResolver : CustomContractResolver<Player>
+    {
+        public PlayerContractResolver()
+        {
+            AddMap(x => x.Id, "Pid");
+            AddMap(x => x.GroupId, "Gid");
+            AddMap(x => x.IpAddress, "Ip");
+        }
     }
 }
